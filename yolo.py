@@ -219,8 +219,9 @@ import glob
 
 path = "D:\\project\\keras-yolo3-master\\VOCdevkit\\VOC2007\\JPEGImages\*.jpg"
 outdir = "D:\\project\\keras-yolo3-master\\VOCdevkit\\VOC2007\\SegmentationClass"
+yolo = YOLO()
 for jpgfile in glob.glob(path):
     img = Image.open(jpgfile)
-    img = YOLO().detect_image(img)
+    img = yolo.detect_image(img)
     img.save(os.path.join(outdir, os.path.basename(jpgfile)))
 yolo.close_session()
